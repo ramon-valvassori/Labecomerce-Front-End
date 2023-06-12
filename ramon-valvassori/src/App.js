@@ -6,7 +6,7 @@ import Home from './Components/Product List/Home/Home';
 import Cart from './Components/ShoppingCart/Cart/Cart';
 import Items from './Components/ShoppingCart/Items/Items';
 import ProductCard from './Components/Product List/ProductCard/ProductCard';
-import productList from './Components/assents/productList';
+import ProductList from './Components/assents/ProductList';
 
 function App() {
   
@@ -15,14 +15,30 @@ function App() {
   const [maxFilter, setMaxFilter] = useState()
   const [cart, setCart] = useState()
   const [searchFilter, setSearchFilter] = useState()
-  const [amount, SetAmount] = useState()
+  const [amount, setAmount] = useState()
   return (
     <div className="App">
-      <Filters/>
-      <Home/>
-      <Cart/>
-      <ProductCard productList={productList}/>
+      <Filters
+      minFilter={minFilter}
+      setMinFilter={setMinFilter}
+      maxFilter={maxFilter}
+      setMaxFilter={setMaxFilter}
+      searchFilter={searchFilter}
+      setSearchFilter={setSearchFilter}/>
+      <Home
+      productList={ProductList}
+      amount={amount}
+      setAmount={setAmount}
+      cart={cart}
+      setCart={setCart}/>
+      <Cart
+      amount={amount}
+      setAmount={setAmount}
+      cart={cart}
+      setCart={setCart}/>
+      <ProductCard productList={ProductList}/>
       <Items/>
+      <ProductList/>
     </div>
     
   );

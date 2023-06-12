@@ -1,5 +1,5 @@
 
-import productList from "../../../App"
+import ProductList from "../../../App"
 
 const ProductCard = () => {
    
@@ -7,7 +7,7 @@ const ProductCard = () => {
 return (
     <div className="ProductCard">
        <p>ProductCard</p>
-       <App productList={productList} />
+       <p>ProductList={ProductList} </p>
        
        
         
