@@ -1,13 +1,13 @@
-import { useState } from "react"
+import { FilterContainer } from "./FiltersStyle"
 
-const Filters = (
-    minFilter,
+const Filters = (props) => {
+   const { minFilter,
     setMinFilter,
     maxFilter,
     setMaxFilter,
     searchFilter,
-    setSearchFilter
-    ) => {
+    setSearchFilter} = props
+    
      
      const minimoFiltro = (e) => {
         setMinFilter(e.target.value)
@@ -18,25 +18,26 @@ const Filters = (
      }
 
      const procuraFiltro = (e) => {
-        setSearchFilter = (e.target.value)
+        setSearchFilter(e.target.value)
      }
      
      
      return (
-        <div>
-            <imput onChange={minimoFiltro} valeu={minFilter}>
-                <h1>Filtro Mínimo</h1>
+        <FilterContainer>
+            <h1>Filters</h1>
+            <input onChange={minimoFiltro} valeu={minFilter}/>
+                <h2>Filtro Mínimo</h2>
                 
-            </imput>
-            <imput onChange={maximoFiltro} valeu={maxFilter}>
-                <h1>Filtro Máximo</h1>
+            
+            <input onChange={maximoFiltro} valeu={maxFilter}/>
+                <h2>Filtro Máximo</h2>
                 
-            </imput>
-            <imput onChange={procuraFiltro} valeu={searchFilter}>
-                <h1>Procura Filtro</h1>
+            
+            <input onChange={procuraFiltro} valeu={searchFilter}/>
+                <h2>Procura Filtro</h2>
                 
-            </imput>
-        </div>
+            
+        </FilterContainer>
     )
 }
 

@@ -1,33 +1,36 @@
-import { HomeStyle } from "./homeStyle";
-import ProductCard from "../../assents/ProductList"
+import  { HomeContainer }  from "./homeStyle"
+
 import { useState } from 'react'
-import ProductList from "../../assents/ProductList";
+
 
 const Home = (props) => {
+
+    const {renderList, amount, cart, quantia, carrinho} = props
+
     const [ordination, setOrdination] = useState("")
+    const [adicionarItens, setAdicionarItens] = useState("")
 
     const ordenacao = (e) => {
         setOrdination(e.target.value)
     }
-    
-    const quantia = (e) => {
-        props.setAmount(e.target.value)
-    }
 
-    const carrinho = (e) => {
-        props.setCart(e.target.value)
-    }
+    const adcionarItensFuncao = (e) => {
+        setAdicionarItens(e.target.value)
+    } 
        
         return(
-      <label>     
-      <h1></h1>
+       <HomeContainer> 
+       <label>
        <select onChange={ordenacao} value={ordination}>       
        </select>
-       <input type="list" value={ProductList}/>
-       <input type="number" onChange ={quantia} value={props.amount}/>
-       <input type="cart" onChange={carrinho} value={props.Cart}/>    
-      </label> 
-        
+       {renderList}
+       <input type="number" onChange={quantia} value={amount}/>
+       <input type="cart" onChange={carrinho} value={cart}/>    
+       <button onChange={adcionarItensFuncao} value={adicionarItens}></button>     
+       </label>
+       </HomeContainer>    
+      
+
         )
     }
 

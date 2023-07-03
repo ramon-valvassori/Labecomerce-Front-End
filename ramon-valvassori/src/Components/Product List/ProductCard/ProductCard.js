@@ -1,17 +1,22 @@
+import { ProductCardContainer} from "./productCardStyle"
 
-import ProductList from "../../../App"
+const ProductCard = (props) => {
+  
 
-const ProductCard = () => {
-   
+   const { renderList } = props
+  
     
 return (
+
+    <ProductCardContainer>
     <div className="ProductCard">
-       <p>ProductCard</p>
-       <p>ProductList={ProductList} </p>
+        renderList={renderList}  
+       
        
        
         
     </div>
+    </ProductCardContainer>
 )
 }
 

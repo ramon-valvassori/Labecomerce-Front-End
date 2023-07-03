@@ -1,30 +1,22 @@
-import Items from "../Items/Items"
+import { CartContainer } from "./cartStyle"
 
 const Cart = (props) => {
 
-    const quantia = (e) => {
-        props.setAmount(e.target.value)
-    }
-
-    const carrinho = (e) => {
-        props.setCart(e.target.value)
-    }
+    const { quantia, carrinho, amount, cart } = props  
 
     return(
       
-      <>
-      <label>
-            <h1></h1>
-            <input type="number" onChange={quantia} value={props.amount} />
-            <input type="cart" onChange={carrinho} value={props.Cart} />
+        <CartContainer>
+        <label>
+            <input type="number" onChange={quantia} value={amount} />
+            <input type="cart" onChange={carrinho} value={cart} />
         </label>
         
-        <div>
-        <Items
-        quantia={quantia}
-        amount={props.amount}/>
-        </div>
-        </>
+        
+        
+        </CartContainer>
+
+        
       
     )
 }

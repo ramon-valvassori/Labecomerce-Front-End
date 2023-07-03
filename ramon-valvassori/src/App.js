@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 import { useState } from 'react'
 import Filters from './Components/Filters/Filters';
@@ -6,18 +6,39 @@ import Home from './Components/Product List/Home/Home';
 import Cart from './Components/ShoppingCart/Cart/Cart';
 import Items from './Components/ShoppingCart/Items/Items';
 import ProductCard from './Components/Product List/ProductCard/ProductCard';
-import ProductList from './Components/assents/ProductList';
+import ProductList from './Components/assents/ProductList'
+import { GlobalStyle } from './GlobalStyle';
 
 function App() {
   
-  
-  const [minFilter, setMinFilter] = useState() 
-  const [maxFilter, setMaxFilter] = useState()
-  const [cart, setCart] = useState()
-  const [searchFilter, setSearchFilter] = useState()
-  const [amount, setAmount] = useState()
+  const [minFilter, setMinFilter] = useState("") 
+  const [maxFilter, setMaxFilter] = useState("")
+  const [cart, setCart] = useState("")
+  const [searchFilter, setSearchFilter] = useState("")
+  const [amount, setAmount] = useState("")
+
+  const quantia = (e) => {
+    setAmount(e.target.value)
+}
+
+  const carrinho = (e) => {
+    setCart(e.target.value)
+}
+
+  const renderList = ProductList.map(char => {
+    return (
+      <ProductCard key={char.id}
+    id = {char.id}
+    name = {char.name}
+    value = {char.value}
+    imageUrl = {char.imageUrl}
+    />
+    )
+  })
+
   return (
     <div className="App">
+      <GlobalStyle/>
       <Filters
       minFilter={minFilter}
       setMinFilter={setMinFilter}
@@ -26,22 +47,30 @@ function App() {
       searchFilter={searchFilter}
       setSearchFilter={setSearchFilter}/>
       <Home
-      productList={ProductList}
+      renderList={renderList}
       amount={amount}
-      setAmount={setAmount}
+      
       cart={cart}
-      setCart={setCart}/>
+      
+      carrinho={carrinho}
+      quantia={quantia}/>
+      
       <Cart
+      carrinho={carrinho}
+      quantia={quantia}
       amount={amount}
-      setAmount={setAmount}
       cart={cart}
-      setCart={setCart}/>
-      <ProductCard productList={ProductList}/>
-      <Items/>
-      <ProductList/>
+      />
+
+      <Items 
+      quantia={quantia}
+      carrinho={carrinho}/>
+
+      <ProductCard/>
+      
     </div>
     
   );
-}
+  }
 
 export default App;
