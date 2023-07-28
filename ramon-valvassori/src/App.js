@@ -1,15 +1,15 @@
 import React from 'react';
-import './App.css';
+
 import { useState } from 'react'
 import Filters from './Components/Filters/Filters';
 import Home from './Components/Product List/Home/Home';
 import Cart from './Components/ShoppingCart/Cart/Cart';
-import Items from './Components/ShoppingCart/Items/Items';
-import ProductCard from './Components/Product List/ProductCard/ProductCard';
 import ProductList from './Components/assents/ProductList'
 import { GlobalStyle } from './GlobalStyle';
+import ProductCard from './Components/Product List/ProductCard/ProductCard';
 
 function App() {
+  
   
   const [minFilter, setMinFilter] = useState("") 
   const [maxFilter, setMaxFilter] = useState("")
@@ -25,17 +25,7 @@ function App() {
     setCart(e.target.value)
 }
 
-  const renderList = ProductList.map(char => {
-    return (
-      <ProductCard key={char.id}
-    id = {char.id}
-    name = {char.name}
-    value = {char.value}
-    imageUrl = {char.imageUrl}
-    />
-    )
-  })
-
+   
   return (
     <div className="App">
       <GlobalStyle/>
@@ -45,15 +35,15 @@ function App() {
       maxFilter={maxFilter}
       setMaxFilter={setMaxFilter}
       searchFilter={searchFilter}
-      setSearchFilter={setSearchFilter}/>
+      setSearchFilter={setSearchFilter}
+      />
       <Home
-      renderList={renderList}
+      ProductList={ProductList}
       amount={amount}
-      
       cart={cart}
-      
       carrinho={carrinho}
-      quantia={quantia}/>
+      quantia={quantia} 
+      />
       
       <Cart
       carrinho={carrinho}
@@ -62,11 +52,12 @@ function App() {
       cart={cart}
       />
 
-      <Items 
-      quantia={quantia}
-      carrinho={carrinho}/>
+      <ProductCard
+      cart={cart}
+      carrinho={carrinho}
+      />
 
-      <ProductCard/>
+      
       
     </div>
     

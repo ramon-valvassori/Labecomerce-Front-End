@@ -24,18 +24,20 @@ const Filters = (props) => {
      
      return (
         <FilterContainer>
+            <div>
             <h1>Filters</h1>
-            <input onChange={minimoFiltro} valeu={minFilter}/>
-                <h2>Filtro Mínimo</h2>
+            <h2>Filtro Mínimo</h2>
+            <input onChange={minimoFiltro} value={minFilter}/>
                 
-            
-            <input onChange={maximoFiltro} valeu={maxFilter}/>
-                <h2>Filtro Máximo</h2>
                 
-            
-            <input onChange={procuraFiltro} valeu={searchFilter}/>
-                <h2>Procura Filtro</h2>
+            <h2>Filtro Máximo</h2>
+            <input onChange={maximoFiltro} value={maxFilter}/>
                 
+                
+            <h2>Procura Filtro</h2>
+            <input onChange={procuraFiltro} value={searchFilter}/>
+                
+            </div>     
             
         </FilterContainer>
     )

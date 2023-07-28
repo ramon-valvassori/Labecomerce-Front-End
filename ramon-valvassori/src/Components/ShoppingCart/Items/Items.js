@@ -3,7 +3,7 @@ import { CartContainer } from "./itemsStyle"
 
 const Items = (props) => {
   const { quantia, carrinho, amount, cart } = props
-    return(
+    return <><p>Items</p>
       <CartContainer>
         <div>    
       <label>
@@ -14,7 +14,8 @@ const Items = (props) => {
         
       </div>
       </CartContainer>
-    )
+      </>
+    
 }
 
 export default Items
