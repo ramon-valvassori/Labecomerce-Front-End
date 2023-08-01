@@ -1,15 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.073c9b0a.css",
-    "main.js": "/static/js/main.5a0b7f1c.js",
+    "main.css": "/static/css/main.e6c13ad2.css",
+    "main.js": "/static/js/main.27dccd5d.js",
     "static/js/787.2e9f3e08.chunk.js": "/static/js/787.2e9f3e08.chunk.js",
+    "static/media/camiseta_nasa_spacelab_branca_masc_187_1_webp": "/static/media/camiseta_nasa_spacelab_branca_masc_187_1_84a77198ccfecc69c9371aab688d2287.72b065a1b183ddcaaaf1.webp",
+    "static/media/camiseta_unissex_nasa_agencia_governamental.webp": "/static/media/camiseta_unissex_nasa_agencia_governamental.cafafd23272285b2fca0.webp",
+    "static/media/Astronauta e Galaxia.jpg": "/static/media/Astronauta e Galaxia.85af60aa868d31ada09b.jpg",
+    "static/media/camiseta-falcon-preta21--480-0.webp": "/static/media/camiseta-falcon-preta21-e7495cef535609532416566940477355-480-0.69707f74284be194fa1a.webp",
+    "static/media/FotoModelo_Masculino-768x768.webp": "/static/media/FotoModelo_Masculino-768x768.d1f2a91c30806fe90b03.webp",
     "index.html": "/index.html",
-    "main.073c9b0a.css.map": "/static/css/main.073c9b0a.css.map",
-    "main.5a0b7f1c.js.map": "/static/js/main.5a0b7f1c.js.map",
+    "main.e6c13ad2.css.map": "/static/css/main.e6c13ad2.css.map",
+    "main.27dccd5d.js.map": "/static/js/main.27dccd5d.js.map",
     "787.2e9f3e08.chunk.js.map": "/static/js/787.2e9f3e08.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.5a0b7f1c.js"
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.27dccd5d.js"
   ]
 }

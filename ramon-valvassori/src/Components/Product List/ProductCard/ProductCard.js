@@ -1,21 +1,23 @@
-import { ProductCardContainer} from "./productCardStyle"
+import { ProductCardContainer } from "./productCardStyle";
 
-const ProductCard = (props) => {
- 
-   
-return  ( <>
+const ProductCard = ({ addToCart, product}) => {
+  console.log(product);
+  return (
+    
+      <ProductCardContainer>
+        
+          {/*<img src={product.imageUrl} alt={`imagem de ${product.name}`} />*/}
+          <p>{`Número ${product.id}`}</p>
+          <h1>{product.name}</h1>
+          <h2>{`R$ ${product.value}`}</h2>
+          <button
+            onClick={()=>addToCart(product)}>
+            Adicionar ao Carrinho
+          </button>
+        
+      </ProductCardContainer>
+    
+  );
+};
 
-    <ProductCardContainer>
-    <div>
-    <img src={props.imageUrl} alt={`imagem de ${props.name}`}/>
-    <p>{`Número ${props.id}`}</p>
-    <h1>{props.name}</h1>
-    <h2>{`R$ ${props.value}`}</h2>
-    <button onClick={props.addItemToCart} value={props.cart} key={props.id}>Adicionar ao Carrinho</button>        
-    </div>
-    </ProductCardContainer>
-    </>
-)
-}
-
-export default ProductCard
+export default ProductCard;

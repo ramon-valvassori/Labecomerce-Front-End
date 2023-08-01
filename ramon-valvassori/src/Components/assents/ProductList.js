@@ -48,5 +48,6 @@ const ProductList = [
     imageUrl: cccp,
   },
 ];
+let soma=0
 
 export default ProductList;

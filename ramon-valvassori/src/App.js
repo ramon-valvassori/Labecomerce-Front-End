@@ -13,7 +13,7 @@ function App() {
   
   const [minFilter, setMinFilter] = useState("") 
   const [maxFilter, setMaxFilter] = useState("")
-  const [cart, setCart] = useState("")
+  const [cart, setCart] = useState([])
   const [searchFilter, setSearchFilter] = useState("")
   const [amount, setAmount] = useState("")
 
@@ -50,6 +50,7 @@ function App() {
       quantia={quantia}
       amount={amount}
       cart={cart}
+      setCart={setCart}
       />
 
       <ProductCard

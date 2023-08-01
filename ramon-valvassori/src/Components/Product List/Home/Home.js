@@ -1,60 +1,54 @@
-import ProductCard from "../ProductCard/ProductCard"
-import  { HomeContainer, ListContainer }  from "./homeStyle"
+import Cart from "../../ShoppingCart/Cart/Cart";
+import ProductCard from "../ProductCard/ProductCard";
+import { HomeContainer, ListContainer } from "./homeStyle";
 
-import { useState } from 'react'
-
+import { useState } from "react";
 
 const Home = (props) => {
+  const { ProductList, amount, cart, quantia, carrinho } = props;
 
-    const {ProductList, amount, cart, quantia, carrinho} = props
+  const [ordination, setOrdination] = useState("");
+  const [adicionarItens, setAdicionarItens] = useState("");
 
-    const [ordination, setOrdination] = useState("")
-    const [adicionarItens, setAdicionarItens] = useState("")
+  const ordenacao = (e) => {
+    setOrdination(e.target.value);
+  };
 
-    const ordenacao = (e) => {
-        setOrdination(e.target.value)
-    }
+  const adcionarItensFuncao = (e) => {
+    setAdicionarItens(e.target.value);
+  };
 
-    const adcionarItensFuncao = (e) => {
-        setAdicionarItens(e.target.value)
-    } 
-    
-    
-    const renderList = ProductList.map(char => {
-    
-        return (
-               
-        <ListContainer> 
-        <ProductCard key={char.id}
-        id = {char.id}
-        name = {char.name}
-        value = {char.value}
-        imageUrl = {char.imageUrl}/>
-        </ListContainer>
-        
-        )
-      })
-           
-        return(
-        <HomeContainer>
+  const addToCart = (product) => {
+    const newProduct = cart.find((item) => item.id === product.id);
+    console.log(newProduct);
+  };
 
-                    {/*<select onChange={ordenacao} value={ordination}>
-                    </select>*/}
-                    
-                    {renderList}
-                    
-                    
-                    {/*<input type="number" onChange={quantia} value={amount} />
-                    <input type="cart" onChange={carrinho} value={cart} />
-                <button onChange={adcionarItensFuncao} value={adicionarItens}></button>*/}
-                    
-            </HomeContainer>
-        
-            
-        
+  const renderList = ProductList.map((product) => {
+   
+    return (
+      <ProductCard key={product.id} product={product} addToCart={addToCart} />
+    );
+  });
 
-        )
-    }
+  const productCart = cart.map((product) => {
+    return (
+      <Cart
+        key={product.id}
+        id={product.id}
+        name={product.name}
+        value={product.value}
+        imageUrl={product.imageUrl}
+      />
+    );
+  });
 
-export default Home
+  return (
+    <>
+      <HomeContainer>{renderList}</HomeContainer>
 
+      <Cart>{productCart}</Cart>
+    </>
+  );
+};
+
+export default Home;
