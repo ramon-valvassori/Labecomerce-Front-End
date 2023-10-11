@@ -1,68 +1,29 @@
-import React from 'react';
+import React from "react";
+import Filters from "./Components/Filters/Filters";
+import Home from "./Components/Product List/Home/Home";
 
-import { useState } from 'react'
-import Filters from './Components/Filters/Filters';
-import Home from './Components/Product List/Home/Home';
-import Cart from './Components/ShoppingCart/Cart/Cart';
-import ProductList from './Components/assents/ProductList'
-import { GlobalStyle } from './GlobalStyle';
-import ProductCard from './Components/Product List/ProductCard/ProductCard';
+import { GlobalStyle } from "./GlobalStyle";
+import ProductList from "./Components/assents/ProductList";
+import Cart from "./Components/ShoppingCart/Cart/Cart";
 
-function App() {
+function App(props) {
+  const { addToCart, deleteProdutcCart } = props;
+  console.log(props)
+
   
-  
-  const [minFilter, setMinFilter] = useState("") 
-  const [maxFilter, setMaxFilter] = useState("")
-  const [cart, setCart] = useState([])
-  const [searchFilter, setSearchFilter] = useState("")
-  const [amount, setAmount] = useState("")
 
-  const quantia = (e) => {
-    setAmount(e.target.value)
-}
-
-  const carrinho = (e) => {
-    setCart(e.target.value)
-}
-
-   
   return (
-    <div className="App">
-      <GlobalStyle/>
-      <Filters
-      minFilter={minFilter}
-      setMinFilter={setMinFilter}
-      maxFilter={maxFilter}
-      setMaxFilter={setMaxFilter}
-      searchFilter={searchFilter}
-      setSearchFilter={setSearchFilter}
+    <div>
+      <GlobalStyle />
+      <Filters />
+   <Home
+   ProductList={ProductList}
+        /* addToCart={addToCart}
+        deleteProdutcCart={deleteProdutcCart} */
       />
-      <Home
-      ProductList={ProductList}
-      amount={amount}
-      cart={cart}
-      carrinho={carrinho}
-      quantia={quantia} 
-      />
-      
-      <Cart
-      carrinho={carrinho}
-      quantia={quantia}
-      amount={amount}
-      cart={cart}
-      setCart={setCart}
-      />
-
-      <ProductCard
-      cart={cart}
-      carrinho={carrinho}
-      />
-
-      
-      
+     {/* <Cart/>  */}
     </div>
-    
   );
-  }
+}
 
 export default App;

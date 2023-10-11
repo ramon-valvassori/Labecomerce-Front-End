@@ -1,54 +1,81 @@
-import Cart from "../../ShoppingCart/Cart/Cart";
-import ProductCard from "../ProductCard/ProductCard";
-import { HomeContainer, ListContainer } from "./homeStyle";
-
 import { useState } from "react";
+import ProductCard from "../ProductCard/ProductCard";
+import { HomeContainer} from "./homeStyle";
 
-const Home = (props) => {
-  const { ProductList, amount, cart, quantia, carrinho } = props;
 
-  const [ordination, setOrdination] = useState("");
-  const [adicionarItens, setAdicionarItens] = useState("");
+const Home = ({ProductList}) => {
 
-  const ordenacao = (e) => {
-    setOrdination(e.target.value);
-  };
-
-  const adcionarItensFuncao = (e) => {
-    setAdicionarItens(e.target.value);
-  };
+  const [ordination, setOrdination] = useState("")
+  const [cart, setCart] = useState([])
+    
+  const handleSelectChange = (e) => {
+    setOrdination(e.target.value)
+  }
 
   const addToCart = (product) => {
     const newProduct = cart.find((item) => item.id === product.id);
     console.log(newProduct);
+
+    if (newProduct === undefined) {
+      setCart([...cart, { ...product, amount: 1 }]);
+    } else {
+
+      const newCart = cart.map((item) => {
+        if (item.id === product.id) {
+          return { ...newProduct, amount: newProduct.amount + 1 };
+        } else {
+          return item;
+        }
+      });
+      setCart(newCart)
+    }
   };
 
-  const renderList = ProductList.map((product) => {
+  const deleteProductCart = (product) => {
+    const ProductToDelete = cart.find((item) => item.id === product.id )
+
+
+    if (ProductToDelete.amount>1) {
+      
+      const newCart = cart.map((item) => {
+        if (item.id === product.id) {
+          return { ... ProductToDelete, amount: ProductToDelete.amount-1 };
+        } else {
+          return item;
+        }
+      });
+      setCart(newCart)
+     
+    } else {
+      const newCart = cart.filter((item)=>{
+        return item.id !== product.id
+      })
+      setCart(newCart)
+    }
+  }  
+
+
    
-    return (
-      <ProductCard key={product.id} product={product} addToCart={addToCart} />
-    );
-  });
-
-  const productCart = cart.map((product) => {
-    return (
-      <Cart
-        key={product.id}
-        id={product.id}
-        name={product.name}
-        value={product.value}
-        imageUrl={product.imageUrl}
+    return (<>
+      <h3>Quantidade de produtos: 6</h3>
+      <HomeContainer>
+      <ProductCard
+      ProductList={ProductList}
+      addToCart={addToCart}
+      deleteProductCart={deleteProductCart}
       />
+      
+      
+      <select onChange={handleSelectChange} value={ordination}>
+          <option></option>
+          <option></option>
+          <option></option>
+          <option></option>
+          <option></option>
+        </select>
+        </HomeContainer>
+           </>
     );
-  });
-
-  return (
-    <>
-      <HomeContainer>{renderList}</HomeContainer>
-
-      <Cart>{productCart}</Cart>
-    </>
-  );
 };
 
 export default Home;

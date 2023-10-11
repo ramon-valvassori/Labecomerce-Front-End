@@ -5,13 +5,11 @@ export const ListContainer = styled.div`
     
 `
 
-export const HomeContainer = styled.div`
+export const HomeContainer = styled.span`
     
-    display:flex;
-    flex-wrap: wrap; 
-    justify-content: space-around;
-    text-align: center;
-    
+display: flex;
+flex-wrap: wrap;
+
     
     
     

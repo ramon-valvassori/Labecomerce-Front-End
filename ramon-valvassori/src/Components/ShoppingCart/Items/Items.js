@@ -1,4 +1,4 @@
-import { CartContainer } from "./itemsStyle"
+/* import { CartContainer } from "./itemsStyle"
 
 
 const Items = (props) => {
@@ -18,4 +18,4 @@ const Items = (props) => {
     
 }
 
-export default Items
+export default Items */
